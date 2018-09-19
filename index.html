@@ -4,6 +4,87 @@
     <title>360&deg; Image</title>
     <meta name="description" content="360&deg; Image - A-Frame">
     <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+	<style>
+		*{margin: 0; padding: 0; color:#333333}
+		
+		canvas{
+			width: 100%;
+			height: 100%;
+		}
+		
+		h1.logo{
+			border: 1px solid red;
+			padding: 10px;
+			
+		}
+		
+		div.menu ul {
+			border: 1px solid red;
+			width: 200px;
+			
+		}
+		
+		div.menu ul li {
+			padding: 10px;
+			list-style: none;
+		}
+		
+		div.menu ul li a {
+			text-decoration: none;
+			padding: 10px;
+			font-size: 13px;
+			
+		}
+		
+		div#wrap2{
+			perspective: 1000px;
+			perspective-origin: 50% 50%;
+		}
+		
+		
+		#cube {
+    		width: 200px;
+			height: 200px;
+    		margin: auto;
+    		transform-style: preserve-3d;
+    		transform: rotateX(-45deg) rotateY(30deg);
+			position: relative;
+}
+		
+		.side {
+   			position: absolute;
+   			width: 100%;
+    		height: 100%;
+    		background: rgba(100,100,100,0.5);
+    		border: 1px solid black;
+    		text-align: center;
+    		line-height: 2em;
+			box-sizing: border-box;
+		}
+		
+		.front {transform: translateZ(100px);}
+		.top {transform: rotateX(-270deg) translateZ(100px);}
+		.right {transform: rotateY(-270deg) translateZ(100px);}
+		.left {transform: rotateY(270deg) translateZ(100px);}
+		.bottom {transform: rotateX(270deg) translateZ(100px);}
+		.back {transform: rotateY(-180deg) translateZ(100px);}
+		
+		@keyframes rotate {
+  				from {
+    				transform: rotateX(0deg) rotateY(0deg);
+  					}
+  
+  				to {
+    				transform: rotateX(360deg) rotateY(360deg);
+  					}
+		}
+		
+		#cube {
+                animation: rotate 20s infinite linear;
+            }
+		
+		
+	</style>
 
 </head>
 
@@ -13,6 +94,33 @@
 
       <a-text font="kelsonsans" value="Puy de Sancy, France" width="6" position="-2.5 0.25 -1.5"
               rotation="0 15 0"></a-text>
-    </a-scene>
+	 </a-scene>
+	<div id="wrap">
+		
+		<header>
+			<h1 class="logo">CUBE</h1>	
+			
+			<div class="menu">
+				<ul>
+					<li><a href="#">company</a></li>
+					<li><a href="#">artist</a></li>
+					<li><a href="#">multi media</a></li>
+					<li><a href="#">audition</a></li>
+					<li><a href="#">notice</a></li>
+				</ul>
+			</div>
+		</header>
+		
+		<div id="wrap2">
+			<div id="cube">
+				<div class="side front">FRONT</div>
+				<div class="side back">BACK</div>
+				<div class="side top">TOP</div>
+				<div class="side bottom">BOTTOM</div>
+				<div class="side left">LEFT</div>
+				<div class="side right">RIGHT</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
